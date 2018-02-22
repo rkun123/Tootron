@@ -1,0 +1,17 @@
+{
+  "name": "tootron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron .",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.10",
+    "electron-json-config": "^1.5.1",
+    "mastodon": "^1.2.1"
+  }
+}

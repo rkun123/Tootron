@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>\(^.^)/</title>
+        <link rel="stylesheet" href="./materialize/css/materialize.css">
+        <style>
+            body{
+                text-align:center;
+                margin: 25px;
+            }
+            span{
+                
+            }
+        </style>
+    </head>
+    <body class="indigo darken-4">
+        <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+        <script type="text/javascript">
+            var electron = require("electron");
+            function sendToken(){
+                var tokenBoxValue = document.form.tokenBox.value;
+                var domainBoxValue = document.form.domainBox.value;
+                if(tokenBoxValue && domainBoxValue){
+                    console.log(tokenBoxValue+"@"+domainBoxValue);
+                    electron.ipcRenderer.send("accessToken",{"token":tokenBoxValue,"domain":domainBoxValue});
+                }
+                require("electron").remote.getCurrentWindow().close();
+            }
+            
+            
+
+        </script>
+        <h1>Authorization</h1>
+        <form name="form">
+            <span class="label">インスタンスドメイン(例:mstdn.jp):</span><input type="text" name="domainBox">
+            <span class="label">アクセストークン:</span><input type="text" name="tokenBox">
+            
+            <input type="button" class="waves-effect btn" style="text-align:center;" onclick="sendToken()" value="Authorize">
+
+        </form>
+        
+    </body>
+</html>

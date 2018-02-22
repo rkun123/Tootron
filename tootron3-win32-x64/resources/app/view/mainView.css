@@ -1,0 +1,94 @@
+body{
+    
+}
+div{
+    padding: 0;
+}
+#main{
+    position:absolute;
+
+}
+.tootOuter{
+    display: block;
+    padding: 20px 20px 0 20px;
+}
+.tootContainer{
+    color: #222222;
+    padding: 20px;
+    background-color: #666666;
+    box-shadow: #222222;
+    font-size: 20px;
+}
+.tootContainerContext{
+    display: block;
+    padding:0;
+}
+.tootContainer div{
+    position: relative;
+}
+.bindImg{
+
+    width: 100%;
+    height: auto;
+}
+.tootContainer a{
+    
+}
+.tootUsername{
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    margin:0;
+}
+.tootContent{
+    font-size: 15px;
+}
+
+.tootFormContainer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffffa9;
+    padding: 10px;
+    
+}
+.tootTextArea{
+    width:100%;
+    border: none;
+    background-color: #666666;
+}
+.tootSendButton{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 5px;
+    border: solid 1px black;
+    background-color: hsla(0, 0, 0, 0)
+}
+.separator{
+    border-top: solid 1px #222222;
+    margin: 5px 5px 5px 0px;
+}
+.reloadButton{
+    display: block;
+    margin: auto;
+    left: auto;right: 0;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+.reloadButtonWrapper{
+    left:0;right:0;
+    width: 100%;
+}
+
+.timestamp{
+    font-size: 0.5em;
+    text-align: right;
+}
+.favoriteButton{
+    margin: 0.5em;
+}
+.favoriteButton:hover{
+    cursor: pointer;
+}
