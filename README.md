@@ -1,7 +1,7 @@
 # Tootron
 ## なんなのこれ？
 これは、Electron + Vue.jsなMastodonクライアントです。
-
+![Photo](Screenshots/Photo0.PNG)
 ## そもそもMastodonとは？
 [Mastodon](https://joinmastodon.org/)とは、分散型ツイッ○ーでございます。
 日本で結構普及してるようです。
