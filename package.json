@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.7.10",
+    "electron": "^1.7.11",
     "electron-json-config": "^1.5.1",
     "mastodon": "^1.2.1",
     "ws": "^4.1.0"
