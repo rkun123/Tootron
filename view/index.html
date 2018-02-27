@@ -13,32 +13,73 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
         <div>
+
             <div id="main">
                 <!--TL tabs-->
-                <div class="row">
+                <div class="row tabs-fixed-width">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s4" ><a href="#" v-on:click="HTLButtonOnClick">HOME</a></li>
-                            <li class="tab col s4" ><a href="#" v-on:click="LTLButtonOnClick">LOCAL</a></li>
-                            <li class="tab col s4" ><a href="#" v-on:click="FTLButtonOnClick">FEDERATION</a></li>
+                            <li class="tab col s4" ><a href="#HTL">HOME</a></li>
+                            <li class="tab col s4" ><a href="#LTL">LOCAL</a></li>
+                            <li class="tab col s4" ><a href="#FTL">FEDERATION</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="tootOuter" v-for="toot in toots">
-                    <div class="tootContainer card z-depth-2 indigo lighten-5">
-                        <h2 class="tootUsername">{{ toot.account.display_name }}</h2>
-                        <div class="timestamp">{{ toot.created_at }}</div>
-                        <div class="separator"></div>
-                        <div class="tootContent">
-                            <div class="tootContainerContext" v-html="toot.content"></div>                
-                                <img class="bindImg rounded" v-for="img in toot.media_attachments" v-bind:src="img.url">
-                        </div>
-                        <div>
-                            <i class="material-icons favoriteButton" v-on:click="favoriteButtonOnClick(toot.id)">{{toot.favIcon}}</i>
+                <!--HTL Container-->
+                <div id="HTL" class="col s12">
+                    <div class="tootOuter" v-for="toot in HTLToots">
+                        <div class="tootContainer card z-depth-2 indigo lighten-5">
+                            <h2 class="tootUsername">{{ toot.display_name }}</h2>
+                            <div class="timestamp">{{ toot.created_at }}</div>
+                            <div class="separator"></div>
+                            <div class="tootContent">
+                                <div class="tootContainerContext" v-html="toot.content"></div>                
+                                    <img class="bindImg rounded" v-for="img in toot.media_attachments" v-bind:src="img.url">
+                            </div>
+                            <div>
+                                <i class="material-icons favoriteButton" v-on:click="favoriteButtonOnClick(toot.id)">{{toot.favIcon}}</i>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!--LTL Container-->
+                <div id="LTL" class="col s12">
+                    <div class="tootOuter" v-for="toot in LTLToots">
+                        <div class="tootContainer card z-depth-2 indigo lighten-5">
+                            <h2 class="tootUsername">{{ toot.display_name }}</h2>
+                            <div class="timestamp">{{ toot.created_at }}</div>
+                            <div class="separator"></div>
+                            <div class="tootContent">
+                                <div class="tootContainerContext" v-html="toot.content"></div>                
+                                    <img class="bindImg rounded" v-for="img in toot.media_attachments" v-bind:src="img.url">
+                            </div>
+                            <div>
+                                <i class="material-icons favoriteButton" v-on:click="favoriteButtonOnClick(toot.id)">{{toot.favIcon}}</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--FTL Container-->
+                <div id="FTL" class="col s12">
+                    <div class="tootOuter" v-for="toot in FTLToots">
+                        <div class="tootContainer card z-depth-2 indigo lighten-5">
+                            <h2 class="tootUsername">{{ toot.display_name }}</h2>
+                            <div class="timestamp">{{ toot.created_at }}</div>
+                            <div class="separator"></div>
+                            <div class="tootContent">
+                                <div class="tootContainerContext" v-html="toot.content"></div>                
+                                    <img class="bindImg rounded" v-for="img in toot.media_attachments" v-bind:src="img.url">
+                            </div>
+                            <div>
+                                <i class="material-icons favoriteButton" v-on:click="favoriteButtonOnClick(toot.id)">{{toot.favIcon}}</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Toot form container-->
                 <div id="tootForm">
                     <div class="tootFormContainer indigo lighten-1">
                         <textarea v-model="tootTmp" class="materialize-textarea">TootContext</textarea><br>

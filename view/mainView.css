@@ -18,6 +18,7 @@ div{
     background-color: #666666;
     box-shadow: #222222;
     font-size: 20px;
+    margin:0!important;
 }
 .tootContainerContext{
     display: block;

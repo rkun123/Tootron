@@ -10,7 +10,9 @@ window.onload = function(){
         data:{
             tootTmp:"",
             message:"Hello,Vue!!",
-            toots:[],
+            HTLToots:[],
+            LTLToots:[],
+            FTLToots:[],
             currentTL:""
         },
         methods:{
@@ -19,7 +21,7 @@ window.onload = function(){
                 if(this.tootTmp){
                     electron.ipcRenderer.send("tootSend",this.tootTmp);
                     this.tootTmp = "";
-                    window.setTimeout(this.reloadButtonOnClick,200);
+                    //window.setTimeout(this.reloadButtonOnClick,200);
                 }
                 
             },
@@ -36,37 +38,31 @@ window.onload = function(){
                     window.setTimeout(this.reloadButtonOnClick,200);
                 }
                 
-            },
-            HTLButtonOnClick:function(){loadTimeline("H");},
-            LTLButtonOnClick:function(){loadTimeline("L");},
-            FTLButtonOnClick:function(){loadTimeline("F");}
+            }
 
         }
     });
 
-    function loadTimeline(whichTL){
-        console.log("Reload...");
-        app.toots = [];
-        app.currentTL = whichTL;
-        console.log(whichTL);
-        electron.ipcRenderer.send("TimelineReq", whichTL);
-    }
     //Initial request.
-    loadTimeline("H");
+    electron.ipcRenderer.send("TimelineReq");
     //electron.ipcRenderer.send("homeTimelineReq","Request");
+    
     //Timeline responce listener.
-    electron.ipcRenderer.on("Timeline",function(event,arg){
-        app.toots = [];
-        for(toot of arg){
-            //favorite icon property replace.
-            if(toot.favourited){
-                toot.favIcon = "favorite";
-            }else{
-                toot.favIcon = "favorite_border";
-            }
-            app.toots.push(toot);
-        }
+    electron.ipcRenderer.on("HTL",function(event,arg){
+        app.HTLToots.unshift(arg);
         console.log(arg);
+    });
+    electron.ipcRenderer.on("LTL",function(event,arg){
+        app.LTLToots.unshift(arg);
+        //console.log(app.LTLToots[0].content);
+        console.log(arg.content);
+    });
+    electron.ipcRenderer.on("FTL",function(event,arg){
+        app.FTLToots.unshift(arg);
+        console.log(arg);
+    });
+    electron.ipcRenderer.on("TimelineUpdate",function(event,arg){
+        
     })
 
     //Ctrl+Enter send event listener
