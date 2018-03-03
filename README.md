@@ -32,7 +32,7 @@ Tootron起動してね。↓
 あとあと、メルアド&パスワードで入れるようにするまではごめんね。ベータ版ということで。
 
 # なんかあれば
-Mastodon:[@rkun](mstdn.maud.io/@rkun)へ言ってください。
+Mastodon:[@rkun](https://mstdn.maud.io/@rkun)へ言ってください。
 
 とっても素人なんでアドバイスあればぜひ教えてください。お願いします。
 
